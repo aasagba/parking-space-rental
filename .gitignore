@@ -1,0 +1,19 @@
+# dependencies
+node_modules
+
+# IDEs and editors
+/.idea
+/.vscode
+
+# compiled output
+/dist
+/tmp
+/translations
+/out-tsc
+
+# misc
+yarn-error.log
+
+#System Files
+.DS_Store
+Thumbs.db
