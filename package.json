@@ -5,6 +5,9 @@
   "repository": "https://github.com/aasagba/parking-space-rental.git",
   "author": "Adrian Asagba <adrian.asagba@ctt.co.uk>",
   "license": "MIT",
+  "scripts": {
+    "test": "mocha"
+  },
   "dependencies": {
     "fs-extra": "9.0.1",
     "ganache-cli": "6.11.0",
