@@ -6,7 +6,8 @@
   "author": "Adrian Asagba <adrian.asagba@ctt.co.uk>",
   "license": "MIT",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha",
+    "dev": "node server.js"
   },
   "dependencies": {
     "fs-extra": "9.0.1",
