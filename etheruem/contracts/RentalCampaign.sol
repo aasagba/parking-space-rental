@@ -1,5 +1,21 @@
 pragma solidity ^0.4.17;
 
+contract RentalCampaignFactory {
+    address[] deployedRentalCampaigns;
+
+    function createRentalCampaign() public {
+        // creates new contract that gets deployed
+        // to the blockchain returns and stores
+        // address of newly created Campaign
+        address newRentalCampaign = new RentalCampaign(msg.sender);
+        deployedRentalCampaigns.push(newRentalCampaign);
+    }
+
+    function getDeployedRentalCampaigns() public view returns (address[]) {
+        return deployedRentalCampaigns;
+    }
+}
+
 contract RentalCampaign {
     struct Request {
         string description;
@@ -21,9 +37,9 @@ contract RentalCampaign {
         _;
     }
 
-    function RentalCampaign() public {
+    function RentalCampaign(address creator) public {
         // RSC rental campaign creator
-        manager = msg.sender;
+        manager = creator;
     }
 
     function createRequest(string description, address recipient, uint price)
