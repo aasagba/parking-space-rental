@@ -4,7 +4,7 @@ const compiledFactory = require('./build/RentalCampaignFactory.json');
 
 // connect to target network via infura and unlock account for use on it
 const provider = new HDWalletProvider(
-    
+
 );
 
 // feed provider to web3 instance
