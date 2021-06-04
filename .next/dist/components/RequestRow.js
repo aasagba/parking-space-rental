@@ -46,6 +46,8 @@ var _rentalcampaign = require('../ethereum/rentalcampaign');
 
 var _rentalcampaign2 = _interopRequireDefault(_rentalcampaign);
 
+var _routes = require('../routes');
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var _jsxFileName = '/Users/adrian.asagba/Projects/parking-space-rental/components/RequestRow.js';
@@ -67,38 +69,20 @@ var RequestRow = function (_Component) {
         }
 
         return _ret = (_temp = (_this = (0, _possibleConstructorReturn3.default)(this, (_ref = RequestRow.__proto__ || (0, _getPrototypeOf2.default)(RequestRow)).call.apply(_ref, [this].concat(args))), _this), _this.onApprove = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee() {
-            var campaign, accounts;
             return _regenerator2.default.wrap(function _callee$(_context) {
                 while (1) {
                     switch (_context.prev = _context.next) {
                         case 0:
-                            campaign = (0, _rentalcampaign2.default)(_this.props.address);
-                            _context.next = 3;
-                            return _web2.default.eth.getAccounts();
-
-                        case 3:
-                            accounts = _context.sent;
-
-                        case 4:
                         case 'end':
                             return _context.stop();
                     }
                 }
             }, _callee, _this2);
         })), _this.onFinalise = (0, _asyncToGenerator3.default)( /*#__PURE__*/_regenerator2.default.mark(function _callee2() {
-            var campaign, accounts;
             return _regenerator2.default.wrap(function _callee2$(_context2) {
                 while (1) {
                     switch (_context2.prev = _context2.next) {
                         case 0:
-                            campaign = (0, _rentalcampaign2.default)(_this.props.address);
-                            _context2.next = 3;
-                            return _web2.default.eth.getAccounts();
-
-                        case 3:
-                            accounts = _context2.sent;
-
-                        case 4:
                         case 'end':
                             return _context2.stop();
                     }
@@ -115,50 +99,55 @@ var RequestRow = function (_Component) {
             var _props = this.props,
                 id = _props.id,
                 request = _props.request,
+                address = _props.address,
                 approversCount = _props.approversCount;
             // const readyToFinalise = request.approvalCount > approversCount / 2;
 
             return _react2.default.createElement(Row, { disabled: request.complete, positive: !request.complete, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 29
+                    lineNumber: 30
                 }
             }, _react2.default.createElement(Cell, {
                 __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 30
+                    lineNumber: 31
                 }
             }, id), _react2.default.createElement(Cell, {
                 __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 31
+                    lineNumber: 32
                 }
             }, request.description), _react2.default.createElement(Cell, {
                 __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 32
+                    lineNumber: 33
                 }
             }, request.price ? _web2.default.utils.fromWei(request.price, 'ether') : '-'), _react2.default.createElement(Cell, {
                 __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 33
+                    lineNumber: 34
                 }
             }, request.recipient), _react2.default.createElement(Cell, {
                 __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 35
+                    lineNumber: 36
                 }
-            }, request.complete ? null : _react2.default.createElement(_semanticUiReact.Button, { color: 'green', basic: true, onClick: this.onApprove, __source: {
+            }, request.complete ? null : _react2.default.createElement(_routes.Link, { route: '/campaigns/' + address + '/requests/agree/' + id, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 37
+                    lineNumber: 38
                 }
-            }, 'Rent')), _react2.default.createElement(Cell, {
+            }, _react2.default.createElement(_semanticUiReact.Button, { color: 'green', basic: true, onClick: this.onApprove, __source: {
+                    fileName: _jsxFileName,
+                    lineNumber: 39
+                }
+            }, 'Rent'))), _react2.default.createElement(Cell, {
                 __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 42
+                    lineNumber: 45
                 }
             }, request.complete ? null : _react2.default.createElement(_semanticUiReact.Button, { color: 'teal', basic: true, onClick: this.onFinalise, __source: {
                     fileName: _jsxFileName,
-                    lineNumber: 44
+                    lineNumber: 47
                 }
             }, 'Finalise')));
         }
@@ -168,4 +157,4 @@ var RequestRow = function (_Component) {
 }(_react.Component);
 
 exports.default = RequestRow;
-//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvUmVxdWVzdFJvdy5qcyJdLCJuYW1lcyI6WyJSZWFjdCIsIkNvbXBvbmVudCIsIlRhYmxlIiwiQnV0dG9uIiwid2ViMyIsIkNhbXBhaWduIiwiUmVxdWVzdFJvdyIsIm9uQXBwcm92ZSIsImNhbXBhaWduIiwicHJvcHMiLCJhZGRyZXNzIiwiZXRoIiwiZ2V0QWNjb3VudHMiLCJhY2NvdW50cyIsIm9uRmluYWxpc2UiLCJSb3ciLCJDZWxsIiwiaWQiLCJyZXF1ZXN0IiwiYXBwcm92ZXJzQ291bnQiLCJjb21wbGV0ZSIsImRlc2NyaXB0aW9uIiwicHJpY2UiLCJ1dGlscyIsImZyb21XZWkiLCJyZWNpcGllbnQiXSwibWFwcGluZ3MiOiI7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7QUFBQSxBQUFPLEFBQVM7Ozs7QUFDaEIsQUFBUyxBQUFPOztBQUNoQixBQUFPLEFBQVU7Ozs7QUFDakIsQUFBTyxBQUFjOzs7Ozs7Ozs7SSxBQUVmOzs7Ozs7Ozs7Ozs7Ozs7d05BQ0YsQSxxRkFBWSxtQkFBQTswQkFBQTswRUFBQTswQkFBQTtxREFBQTs2QkFDRjtBQURFLHVDQUNTLDhCQUFTLE1BQUEsQUFBSyxNQUR2QixBQUNTLEFBQW9COzRDQUQ3QjttQ0FFZSxjQUFBLEFBQUssSUFGcEIsQUFFZSxBQUFTOzs2QkFBMUI7QUFGRSxnREFBQTs7NkJBQUE7NkJBQUE7NENBQUE7O0FBQUE7d0JBQUE7QSxtQixBQVFaLHNGQUFhLG9CQUFBOzBCQUFBOzRFQUFBOzBCQUFBO3VEQUFBOzZCQUNIO0FBREcsdUNBQ1EsOEJBQVMsTUFBQSxBQUFLLE1BRHRCLEFBQ1EsQUFBb0I7NkNBRDVCO21DQUVjLGNBQUEsQUFBSyxJQUZuQixBQUVjLEFBQVM7OzZCQUExQjtBQUZHLGlEQUFBOzs2QkFBQTs2QkFBQTs2Q0FBQTs7QUFBQTt5QkFBQTtBOzs7OztpQ0FRSjtnQkFBQSxBQUNHLE1BREgsQUFDaUIsdUJBRGpCLEFBQ0c7Z0JBREgsQUFDUSxPQURSLEFBQ2lCLHVCQURqQixBQUNRO3lCQUMyQixLQUZuQyxBQUV3QztnQkFGeEMsQUFFRyxZQUZILEFBRUc7Z0JBRkgsQUFFTyxpQkFGUCxBQUVPO2dCQUZQLEFBRWdCLHdCQUZoQixBQUVnQixBQUNyQjtBQUVBOzttQ0FDSyxjQUFELE9BQUssVUFBVSxRQUFmLEFBQXVCLFVBQVUsVUFBVSxDQUFDLFFBQTVDLEFBQW9EOzhCQUFwRDtnQ0FBQSxBQUNJO0FBREo7YUFBQSxrQkFDSyxjQUFEOzs4QkFBQTtnQ0FBQSxBQUFPO0FBQVA7QUFBQSxlQURKLEFBQ0ksQUFDQSxxQkFBQyxjQUFEOzs4QkFBQTtnQ0FBQSxBQUFPO0FBQVA7QUFBQSx1QkFGSixBQUVJLEFBQWUsQUFDZiw4QkFBQyxjQUFEOzs4QkFBQTtnQ0FBQSxBQUFPO0FBQVA7QUFBQSx1QkFBTyxBQUFRLFFBQVEsY0FBQSxBQUFLLE1BQUwsQUFBVyxRQUFRLFFBQW5CLEFBQTJCLE9BQTNDLEFBQWdCLEFBQWtDLFdBSDdELEFBR0ksQUFBb0UsQUFDcEUsc0JBQUMsY0FBRDs7OEJBQUE7Z0NBQUEsQUFBTztBQUFQO0FBQUEsdUJBSkosQUFJSSxBQUFlLEFBRWYsNEJBQUMsY0FBRDs7OEJBQUE7Z0NBQUEsQUFDTTtBQUROO0FBQUEsdUJBQ00sQUFBUSxXQUFSLEFBQW1CLHVCQUNqQixBQUFDLHlDQUFPLE9BQVIsQUFBYyxTQUFRLE9BQXRCLE1BQTRCLFNBQVMsS0FBckMsQUFBMEM7OEJBQTFDO2dDQUFBO0FBQUE7YUFBQSxFQVJaLEFBTUksQUFFUSxBQUtSLDBCQUFDLGNBQUQ7OzhCQUFBO2dDQUFBLEFBQ007QUFETjtBQUFBLHVCQUNNLEFBQVEsV0FBUixBQUFtQix1QkFDakIsQUFBQyx5Q0FBTyxPQUFSLEFBQWMsUUFBTyxPQUFyQixNQUEyQixTQUFTLEtBQXBDLEFBQXlDOzhCQUF6QztnQ0FBQTtBQUFBO2FBQUEsRUFoQmhCLEFBQ0ksQUFhSSxBQUVRLEFBT25COzs7OztBQTdDb0IsQSxBQWdEekI7O2tCQUFBLEFBQWUiLCJmaWxlIjoiUmVxdWVzdFJvdy5qcyIsInNvdXJjZVJvb3QiOiIvVXNlcnMvYWRyaWFuLmFzYWdiYS9Qcm9qZWN0cy9wYXJraW5nLXNwYWNlLXJlbnRhbCJ9
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImNvbXBvbmVudHMvUmVxdWVzdFJvdy5qcyJdLCJuYW1lcyI6WyJSZWFjdCIsIkNvbXBvbmVudCIsIlRhYmxlIiwiQnV0dG9uIiwid2ViMyIsIkNhbXBhaWduIiwiTGluayIsIlJlcXVlc3RSb3ciLCJvbkFwcHJvdmUiLCJvbkZpbmFsaXNlIiwiUm93IiwiQ2VsbCIsInByb3BzIiwiaWQiLCJyZXF1ZXN0IiwiYWRkcmVzcyIsImFwcHJvdmVyc0NvdW50IiwiY29tcGxldGUiLCJkZXNjcmlwdGlvbiIsInByaWNlIiwidXRpbHMiLCJmcm9tV2VpIiwicmVjaXBpZW50Il0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7Ozs7O0FBQUEsQUFBTyxBQUFTOzs7O0FBQ2hCLEFBQVMsQUFBTzs7QUFDaEIsQUFBTyxBQUFVOzs7O0FBQ2pCLEFBQU8sQUFBYzs7OztBQUNyQixBQUFTLEFBQVk7Ozs7Ozs7SSxBQUVmOzs7Ozs7Ozs7Ozs7Ozs7d04sQUFDRixxRkFBWSxtQkFBQTswRUFBQTswQkFBQTtxREFBQTs2QkFBQTs2QkFBQTs0Q0FBQTs7QUFBQTt3QkFBQTtBLG1CLEFBUVosc0ZBQWEsb0JBQUE7NEVBQUE7MEJBQUE7dURBQUE7NkJBQUE7NkJBQUE7NkNBQUE7O0FBQUE7eUJBQUE7QTs7Ozs7aUNBUUo7Z0JBQUEsQUFDRyxNQURILEFBQ2lCLHVCQURqQixBQUNHO2dCQURILEFBQ1EsT0FEUixBQUNpQix1QkFEakIsQUFDUTt5QkFDb0MsS0FGNUMsQUFFaUQ7Z0JBRmpELEFBRUcsWUFGSCxBQUVHO2dCQUZILEFBRU8saUJBRlAsQUFFTztnQkFGUCxBQUVnQixpQkFGaEIsQUFFZ0I7Z0JBRmhCLEFBRXlCLHdCQUZ6QixBQUV5QixBQUM5QjtBQUVBOzttQ0FDSyxjQUFELE9BQUssVUFBVSxRQUFmLEFBQXVCLFVBQVUsVUFBVSxDQUFDLFFBQTVDLEFBQW9EOzhCQUFwRDtnQ0FBQSxBQUNJO0FBREo7YUFBQSxrQkFDSyxjQUFEOzs4QkFBQTtnQ0FBQSxBQUFPO0FBQVA7QUFBQSxlQURKLEFBQ0ksQUFDQSxxQkFBQyxjQUFEOzs4QkFBQTtnQ0FBQSxBQUFPO0FBQVA7QUFBQSx1QkFGSixBQUVJLEFBQWUsQUFDZiw4QkFBQyxjQUFEOzs4QkFBQTtnQ0FBQSxBQUFPO0FBQVA7QUFBQSx1QkFBTyxBQUFRLFFBQVEsY0FBQSxBQUFLLE1BQUwsQUFBVyxRQUFRLFFBQW5CLEFBQTJCLE9BQTNDLEFBQWdCLEFBQWtDLFdBSDdELEFBR0ksQUFBb0UsQUFDcEUsc0JBQUMsY0FBRDs7OEJBQUE7Z0NBQUEsQUFBTztBQUFQO0FBQUEsdUJBSkosQUFJSSxBQUFlLEFBRWYsNEJBQUMsY0FBRDs7OEJBQUE7Z0NBQUEsQUFDTTtBQUROO0FBQUEsdUJBQ00sQUFBUSxXQUFSLEFBQW1CLHVCQUNqQixBQUFDLDhCQUFLLHVCQUFBLEFBQXFCLCtCQUEzQixBQUFxRDs4QkFBckQ7Z0NBQUEsQUFDSTtBQURKO2FBQUEsa0JBQ0ksQUFBQyx5Q0FBTyxPQUFSLEFBQWMsU0FBUSxPQUF0QixNQUE0QixTQUFTLEtBQXJDLEFBQTBDOzhCQUExQztnQ0FBQTtBQUFBO2VBVGhCLEFBTUksQUFFUSxBQUNJLEFBTVosMkJBQUMsY0FBRDs7OEJBQUE7Z0NBQUEsQUFDTTtBQUROO0FBQUEsdUJBQ00sQUFBUSxXQUFSLEFBQW1CLHVCQUNqQixBQUFDLHlDQUFPLE9BQVIsQUFBYyxRQUFPLE9BQXJCLE1BQTJCLFNBQVMsS0FBcEMsQUFBeUM7OEJBQXpDO2dDQUFBO0FBQUE7YUFBQSxFQWxCaEIsQUFDSSxBQWVJLEFBRVEsQUFPbkI7Ozs7O0FBL0NvQixBLEFBa0R6Qjs7a0JBQUEsQUFBZSIsImZpbGUiOiJSZXF1ZXN0Um93LmpzIiwic291cmNlUm9vdCI6Ii9Vc2Vycy9hZHJpYW4uYXNhZ2JhL1Byb2plY3RzL3Bhcmtpbmctc3BhY2UtcmVudGFsIn0=

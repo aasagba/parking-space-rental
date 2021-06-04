@@ -2,19 +2,20 @@ import React, { Component } from 'react';
 import { Table, Button } from 'semantic-ui-react';
 import web3 from '../ethereum/web3';
 import Campaign from '../ethereum/rentalcampaign';
+import { Link } from '../routes';
 
 class RequestRow extends Component {
     onApprove = async () => {
-        const campaign = Campaign(this.props.address);
-        const accounts = await web3.eth.getAccounts();
+        // const campaign = Campaign(this.props.address);
+        // const accounts = await web3.eth.getAccounts();
         // await campaign.methods.approveRequest(this.props.id).send({
         //     from: accounts[0]
         // });
     };
 
     onFinalise = async () => {
-        const campaign = Campaign(this.props.address);
-        const accounts = await web3.eth.getAccounts();
+        // const campaign = Campaign(this.props.address);
+        // const accounts = await web3.eth.getAccounts();
         // await campaign.methods.finaliseRequest(this.props.id).send({
         //     from: accounts[0]
         // });
@@ -22,7 +23,7 @@ class RequestRow extends Component {
 
     render() {
         const { Row, Cell } = Table;
-        const { id, request, approversCount } = this.props;
+        const { id, request, address, approversCount } = this.props;
         // const readyToFinalise = request.approvalCount > approversCount / 2;
 
         return (
@@ -34,9 +35,11 @@ class RequestRow extends Component {
                 {/* <Cell>{request.approvalCount}/{approversCount}</Cell> */}
                 <Cell>
                     { request.complete ? null : (
-                        <Button color="green" basic onClick={this.onApprove}>
-                            Rent
-                        </Button>
+                        <Link route={`/campaigns/${address}/requests/agree/${id}`}>
+                            <Button color="green" basic onClick={this.onApprove}>
+                                Rent
+                            </Button>
+                        </Link>
                     )}
                 </Cell>
                 <Cell>
